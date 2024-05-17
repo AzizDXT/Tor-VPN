@@ -19,4 +19,8 @@ _______________________________________________________________
 ## [+] 2nd Setup: 
 #### Download TorVPN Installer from ```Releases```.
 
-```Download and run the installer It may take a long time to download the requirements to run the VPN```
+```
+- Download and run the installer It may take a long time to download the requirements to run the VPN.
+
+- After installation, you will find a shortcut on your desktop. Run it, then press Start, and Tor will launch!
+```
