@@ -4,6 +4,7 @@ import subprocess
 import psutil  
 
 tor_process = None
+subprocess.Popen(["taskkill", "/F", "/IM", "tor.exe"], creationflags=subprocess.CREATE_NO_WINDOW)
 
 def run_tor():
     global tor_process
