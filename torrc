@@ -1,0 +1,3 @@
+SocksPort 9150
+HTTPTunnelPort 9050
+MaxCircuitDirtiness 10
