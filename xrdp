@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# تحديث الحزم
+echo "Updating package list..."
+sudo apt update
+
+# تثبيت بيئة سطح المكتب XFCE4
+echo "Installing XFCE4 desktop environment..."
+sudo apt install -y xfce4 xfce4-goodies
+
+# تثبيت xrdp
+echo "Installing xrdp..."
+sudo apt install -y xrdp
+
+# إعداد جلسة XFCE4 لـ xrdp
+echo "Configuring xrdp to use XFCE4..."
+echo xfce4-session > ~/.xsession
+
+# تشغيل خدمة xrdp
+echo "Starting xrdp service..."
+sudo systemctl start xrdp
+
+# التحقق من أن xrdp يعمل
+sudo systemctl status xrdp | grep "Active: active" &> /dev/null
+
+if [ $? -eq 0 ]; then
+    echo "xrdp is running successfully."
+else
+    echo "Failed to start xrdp. Check the logs for more information."
+    exit 1
+fi
+
+# عرض عنوان الـ IP للاتصال به
+ip=$(hostname -I | awk '{print $1}')
+echo "You can connect to this machine via RDP at the following IP: $ip"
+echo "Use username 'kali' and the appropriate password."
